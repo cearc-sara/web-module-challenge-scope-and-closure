@@ -118,21 +118,21 @@ function scoreboard(getInningScore, inning, numInning) {
   for(let i = 0; i < numInning; i++){
 let score = getInningScore(inning);
 scores.home = scores.home + score.Home;
-scores.away = scores.home + score.Away;
+scores.away = scores.away + score.Away;
 if(i === 0){
-  scoreText = `1st Inning ${scores.away} - ${scores.home} \n`;
+  scoreText = `1st Inning: ${scores.away} - ${scores.home} \n`;
 }else if(i === 1){
-  scoreText = scoreText + `2nd Inning ${scores.away} - ${scores.home} \n`;
+  scoreText = scoreText + `2nd Inning: ${scores.away} - ${scores.home} \n`;
 }else if(i === 2){
-  scoreText = scoreText + `3rd Inning ${scores.away} - ${scores.home} \n`;
+  scoreText = scoreText + `3rd Inning: ${scores.away} - ${scores.home} \n`;
 }else{
-  scoreText = scoreText + `${i+1}th Inning ${scores.away} - ${scores.home} \n`;
+  scoreText = scoreText + `${i+1}th Inning: ${scores.away} - ${scores.home} \n`;
 }
 if(i + 1 === numInning){
-score = getInningScore(inning);
-scores.home = scores.home + score.Home;
-scores.away = scores.home + score.Away;
-  scoreText = scoreText + `Final Score ${scores.away} - ${scores.home} \n`;
+// score = getInningScore(inning);
+// scores.home = scores.home + score.Home;
+// scores.away = scores.home + score.Away;
+  scoreText = scoreText + `Final Score: ${scores.away} - ${scores.home} \n`;
 }
   }
   return scoreText;
