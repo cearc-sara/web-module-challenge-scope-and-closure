@@ -27,11 +27,13 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ *  counter1 has a closure function
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * counter1, it has a function nested inside another function
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *counter1 would be preferable in most situations and 
 */
 
 // counter1 code
@@ -56,11 +58,13 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
-
+   return Math.floor(Math.random() * 3);
+      
 }
+console.log(inning());
+
 
 /* Task 3: finalScore()
 
@@ -76,11 +80,16 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inning, numInning){
+  let home = 0;
+  let away = 0;
+  for(let i = 0; i < numInning; i++){
+    home = home + inning();
+    away = away + inning();
+  }
+  return {Home: home, Away: away};
 }
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -103,8 +112,40 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, numInning) {
+  let scores = {home: 0, away:0};
+  let scoreText = "";
+  for(let i = 0; i < numInning; i++){
+let score = getInningScore(inning);
+scores.home = scores.home + score.Home;
+scores.away = scores.away + score.Away;
+if(i === 0){
+  scoreText = `1st Inning: ${scores.away} - ${scores.home} \n`;
+}else if(i === 1){
+  scoreText = scoreText + `2nd Inning: ${scores.away} - ${scores.home} \n`;
+}else if(i === 2){
+  scoreText = scoreText + `3rd Inning: ${scores.away} - ${scores.home} \n`;
+}else{
+  scoreText = scoreText + `${i+1}th Inning: ${scores.away} - ${scores.home} \n`;
 }
+if(i + 1 === numInning){
+// score = getInningScore(inning);
+// scores.home = scores.home + score.Home;
+// scores.away = scores.home + score.Away;
+  scoreText = scoreText + `Final Score: ${scores.away} - ${scores.home} \n`;
+}
+  }
+  return scoreText;
+}
+
+
+ function getInningScore(inning){
+let home = inning();
+let away = inning();
+return final = {Home: home, Away: away};
+ }
+ 
+ console.log(scoreboard(getInningScore, inning, 9));
+
 
 

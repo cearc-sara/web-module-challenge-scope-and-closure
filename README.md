@@ -42,6 +42,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  a closure is when a function is created inside of another function. that function then can use the variables from the outter function to opperate.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +65,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+      closure is used when we return an annonymus function. its a function inside of a function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+    the name will always be the same, but the number they roll can change
+
 c. What is the lexical scope of `newRoll`? 
+Math.floor(Math.random() * 6);
 
 ### Task 2c - Exit Ticket
 
